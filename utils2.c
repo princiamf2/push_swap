@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mm-furi <mm-furi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: michel <michel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 14:00:49 by mm-furi           #+#    #+#             */
-/*   Updated: 2024/11/29 15:52:54 by mm-furi          ###   ########.fr       */
+/*   Updated: 2024/12/13 19:31:10 by michel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,88 @@ void	error_exit(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
+}
+
+void up_min_five(t_stack *a)
+{
+	int min;
+	int	i;
+	int	min_pos;
+	t_node *cur;
+	
+	if (a->size != 5)
+		return ;
+	cur = a->top;
+	i = 0;
+	min = find_min(a);
+	min_pos = 0;
+	while (cur != NULL)
+	{
+		if (cur->value == min)
+			min_pos = i;
+		i++;
+		cur = cur->next;
+	}
+	if (min_pos == 0)
+		return ;
+	else if (min_pos == 1)
+		sa(a);
+	else if (min_pos == 2)
+	{
+		ra(a);
+		ra(a);
+	}
+	else if (min_pos == 3)
+	{
+		rra(a);
+		rra(a);
+	}
+	else if (min_pos == 4)
+		rra(a);
+}
+
+void up_min_four(t_stack *a)
+{
+	int min;
+	int	i;
+	int	min_pos;
+	t_node *cur;
+	
+	if (a->size != 4)
+		return ;
+	cur = a->top;
+	i = 0;
+	min = find_min(a);
+	min_pos = 0;
+	while (cur != NULL)
+	{
+		if (cur->value == min)
+			min_pos = i;
+		i++;
+		cur = cur->next;
+	}
+	if (min_pos == 0)
+		return ;
+	else if (min_pos == 1)
+		sa(a);
+	else if (min_pos == 2)
+	{
+		ra(a);
+		ra(a);
+	}
+	else if (min_pos == 3)
+		rra(a);
+}
+
+void	sort_five(t_stack *a, t_stack *b)
+{
+	if (a->size != 5)
+		return ;
+	up_min_five(a);
+	pb(b, a);
+	up_min_four(a);
+	pb(b, a);
+	sort_three(a);
+	pa(a, b);
+	pa(a, b);
 }

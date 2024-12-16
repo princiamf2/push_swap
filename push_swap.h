@@ -60,4 +60,9 @@ void				radix_sort(t_stack *a, t_stack *b);
 int					main(int argc, char **argv);
 void				error_exit(void);
 void				print_stack(t_stack *stack, char *name);
+void 				sort_three(t_stack *a);
+void				sort_five(t_stack *a, t_stack *b);
+void	 			sort_stack(t_stack *a, t_stack *b);
+t_stack				**sort_stack_of_stack(t_stack *a, t_stack *b);
+int 				find_chunks_have_min(t_stack **stack, int chunks_count);
 #endif
