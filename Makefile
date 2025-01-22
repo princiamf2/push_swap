@@ -2,7 +2,7 @@ NAME = push_swap
 GCC = cc
 CFLAGS = -Wall -Werror -Wextra
 SRC = operation_spe1.c operation_spe2.c operation_standar.c \
-radix_sort.c utils.c utils2.c main.c init.c
+radix_sort.c utils.c utils2.c main.c init.c litle_sort.c turk_sort.c
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

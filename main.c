@@ -6,7 +6,7 @@
 /*   By: mm-furi <mm-furi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:45:35 by mm-furi           #+#    #+#             */
-/*   Updated: 2024/11/29 17:07:31 by mm-furi          ###   ########.fr       */
+/*   Updated: 2025/01/22 16:23:43 by mm-furi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	a = init_stack(argc, argv);
+	if (a->size == 3 && !is_sorted(a))
+	{
+		sort_three(a);
+		print_stack(a, "a");
+	}
+
 	if (is_sorted(a))
 	{
 		free_stack(a);
@@ -31,9 +37,7 @@ int main(int argc, char **argv)
 		free_stack(a);
 		error_exit();
 	}
-	radix_sort(a, b);
-	// print_stack(a, "a");
-	// print_stack(b, "b");
+	moove_to_a(a, b);
 	free_stack(a);
 	free_stack(b);
 	return (0);

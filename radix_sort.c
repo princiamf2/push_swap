@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mm-furi <mm-furi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: michel <michel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 14:48:58 by mm-furi           #+#    #+#             */
-/*   Updated: 2024/11/29 16:39:31 by mm-furi          ###   ########.fr       */
+/*   Updated: 2024/12/12 19:19:29 by michel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	sort_by_bits(t_stack *a, t_stack *b, int max_bits)
 	int	num_elements;
 
 	num_elements = a->size;
+	
 	i = 0;
 	while (i < max_bits)
 	{

@@ -6,7 +6,7 @@
 /*   By: mm-furi <mm-furi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:23:44 by mm-furi           #+#    #+#             */
-/*   Updated: 2024/11/29 16:28:54 by mm-furi          ###   ########.fr       */
+/*   Updated: 2025/01/17 14:39:51 by mm-furi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putstr_fd(char *str, int fd)
 	}
 }
 
-void	swap(t_stack *stack, char *operation)
+void	swap(t_stack *stack)
 {
 	t_node	*first;
 	t_node	*second;
@@ -36,10 +36,9 @@ void	swap(t_stack *stack, char *operation)
 	first->next = second->next;
 	second->next = first;
 	stack->top = second;
-	ft_putstr_fd(operation, 1);
 }
 
-void	push(t_stack *dest, t_stack *src, char *operation)
+void	push(t_stack *dest, t_stack *src)
 {
 	t_node	*temp;
 
@@ -51,10 +50,9 @@ void	push(t_stack *dest, t_stack *src, char *operation)
 	dest->top = temp;
 	src->size--;
 	dest->size++;
-	ft_putstr_fd(operation, 1);
 }
 
-void	rotate(t_stack *stack, char *operation)
+void	rotate(t_stack *stack)
 {
 	t_node	*temp;
 	t_node	*current;
@@ -68,10 +66,9 @@ void	rotate(t_stack *stack, char *operation)
 	while (current->next != NULL)
 		current = current->next;
 	current->next = temp;
-	ft_putstr_fd(operation, 1);
 }
 
-void	rrotate(t_stack *stack, char *operation)
+void	rrotate(t_stack *stack)
 {
 	t_node	*prev;
 	t_node	*current;
@@ -88,5 +85,4 @@ void	rrotate(t_stack *stack, char *operation)
 	prev->next = NULL;
 	current->next = stack->top;
 	stack->top = current;
-	ft_putstr_fd(operation, 1);
 }

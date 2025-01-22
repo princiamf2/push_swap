@@ -1,0 +1,333 @@
+pb
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+ra
+ra
+pb
+rrb
+pb
+rb
+rb
+ra
+ra
+ra
+ra
+rrb
+rrb
+rrb
+rb
+rb
+pb
+rb
+rb
+rrb
+pb
+rb
+rb
+rrb
+rrb
+rrb
+rrb
+rb
+rb
+pb
+rb
+rb
+rb
+rrb
+rrb
+rrb
+rrb
+rrb
+rb
+rb
+rb
+pb
+rb
+rb
+rb
+rrb
+rrb
+rrb
+rrb
+rrb
+rb
+rb
+pb
+rb
+rrb
+rrb
+rrb
+rrb
+rr
+rr
+rr
+pb
+rrb
+rrb
+rrb
+pb
+rb
+rrb
+pb
+rb
+rb
+Stack A: 304 171 250 -365 -83 -192 251 -439 -202 -373 481 357 -494 -103 -180 -256 348 139 
+Stack B: 387 49 
+pos : 10, pos_insert : 0, val : 481, b->size / 2 : 1, b->size : 2
+Stack A: 304 171 250 -365 -83 -192 251 -439 -202 -373 481 357 -494 -103 -180 -256 348 139 
+Stack B: 387 49 
+pos : 10
+pos : 2
+Stack A: 481 357 -494 -103 -180 -256 348 139 304 171 250 -365 -83 -192 251 -439 -202 -373 
+Stack B: 387 49 
+pos : 0, pos_insert : 2, val : 357, b->size / 2 : 1, b->size : 3
+Stack A: 357 -494 -103 -180 -256 348 139 304 171 250 -365 -83 -192 251 -439 -202 -373 
+Stack B: 481 387 49 
+pos : 4, pos_insert : 3, val : 348, b->size / 2 : 2, b->size : 4
+Stack A: -494 -103 -180 -256 348 139 304 171 250 -365 -83 -192 251 -439 -202 -373 
+Stack B: 481 387 357 49 
+pos : 4, pos_insert : 3
+pos : 4
+pos : 0, pos_insert : 3, val : 348, b->size / 2 : 2, b->size : 4
+Stack A: 348 139 304 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 481 387 357 49 
+pos : 0, pos_insert : 2, val : 348, b->size / 2 : 2, b->size : 4
+Stack A: 348 139 304 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 387 357 49 481 
+Stack A: 348 139 304 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 49 481 387 357 
+pos : 0, pos_insert : 4, val : 139, b->size / 2 : 2, b->size : 5
+Stack A: 139 304 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 481 387 357 348 49 
+pos : 0, pos_insert : 4, val : 304, b->size / 2 : 3, b->size : 6
+Stack A: 304 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 481 387 357 348 139 49 
+pos : 0, pos_insert : 4, val : 304, b->size / 2 : 3, b->size : 6
+Stack A: 304 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 481 387 357 348 139 49 
+pos : 0, pos_insert : 2, val : 304, b->size / 2 : 3, b->size : 6
+Stack A: 304 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 357 348 139 49 481 387 
+Stack A: 304 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 139 49 481 387 357 348 
+pos : 0, pos_insert : 5, val : 171, b->size / 2 : 3, b->size : 7
+Stack A: 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 481 387 357 348 304 139 49 
+pos : 0, pos_insert : 5, val : 171, b->size / 2 : 3, b->size : 7
+Stack A: 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 481 387 357 348 304 139 49 
+pos : 0, pos_insert : 3, val : 171, b->size / 2 : 3, b->size : 7
+Stack A: 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 357 348 304 139 49 481 387 
+Stack A: 171 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 139 49 481 387 357 348 304 
+pos : 0, pos_insert : 5, val : 250, b->size / 2 : 4, b->size : 8
+Stack A: 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 481 387 357 348 304 171 139 49 
+pos : 0, pos_insert : 5, val : 250, b->size / 2 : 4, b->size : 8
+Stack A: 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 481 387 357 348 304 171 139 49 
+pos : 0, pos_insert : 2, val : 250, b->size / 2 : 4, b->size : 8
+Stack A: 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 348 304 171 139 49 481 387 357 
+Stack A: 250 -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 171 139 49 481 387 357 348 304 
+pos : 3, pos_insert : 3, val : 251, b->size / 2 : 4, b->size : 9
+Stack A: -365 -83 -192 251 -439 -202 -373 -494 -103 -180 -256 
+Stack B: 357 348 304 250 171 139 49 481 387 
+pos : 3, pos_insert : 3
+pos : 2, pos_insert : 2
+pos : 1, pos_insert : 1
+Stack A: 251 -439 -202 -373 -494 -103 -180 -256 -365 -83 -192 
+Stack B: 250 171 139 49 481 387 357 348 304 
+pos : 0, pos_insert : 10, val : -439, b->size / 2 : 5, b->size : 10
+Stack A: -439 -202 -373 -494 -103 -180 -256 -365 -83 -192 
+Stack B: 357 348 304 251 250 171 139 49 481 387 
+pos : 0, pos_insert : 10, val : -202, b->size / 2 : 5, b->size : 11
+Stack A: -202 -373 -494 -103 -180 -256 -365 -83 -192 
+Stack B: 357 348 304 251 250 171 139 49 481 387 -439 
+pos : 2, pos_insert : 10, val : -103, b->size / 2 : 6, b->size : 12
+Stack A: -373 -494 -103 -180 -ra
+ra
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rb
+rb
+rb
+rb
+pb
+rb
+rb
+rb
+ra
+ra
+ra
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rb
+pb
+rb
+rb
+rb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rb
+rb
+rb
+rb
+rb
+rb
+pb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+ra
+ra
+rb
+rb
+rb
+rb
+rb
+rb
+pb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rb
+rb
+pb
+rb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+sa
+rra
+256 -365 -83 -192 
+Stack B: 357 348 304 251 250 171 139 49 481 387 -202 -439 
+pos : 2, pos_insert : 10
+pos : 2
+pos : 0, pos_insert : 10, val : -103, b->size / 2 : 6, b->size : 12
+Stack A: -103 -180 -256 -365 -83 -192 -373 -494 
+Stack B: 357 348 304 251 250 171 139 49 481 387 -202 -439 
+pos : 0, pos_insert : 8, val : -103, b->size / 2 : 6, b->size : 12
+Stack A: -103 -180 -256 -365 -83 -192 -373 -494 
+Stack B: 304 251 250 171 139 49 481 387 -202 -439 357 348 
+pos : 0, pos_insert : 4, val : -103, b->size / 2 : 6, b->size : 12
+Stack A: -103 -180 -256 -365 -83 -192 -373 -494 
+Stack B: 139 49 481 387 -202 -439 357 348 304 251 250 171 
+Stack A: -103 -180 -256 -365 -83 -192 -373 -494 
+Stack B: -202 -439 357 348 304 251 250 171 139 49 481 387 
+pos : 3, pos_insert : 10, val : -83, b->size / 2 : 6, b->size : 13
+Stack A: -180 -256 -365 -83 -192 -373 -494 
+Stack B: 357 348 304 251 250 171 139 49 481 387 -103 -202 -439 
+pos : 3, pos_insert : 10
+pos : 3
+pos : 0, pos_insert : 10, val : -83, b->size / 2 : 6, b->size : 13
+Stack A: -83 -192 -373 -494 -180 -256 -365 
+Stack B: 357 348 304 251 250 171 139 49 481 387 -103 -202 -439 
+pos : 0, pos_insert : 7, val : -83, b->size / 2 : 6, b->size : 13
+Stack A: -83 -192 -373 -494 -180 -256 -365 
+Stack B: 251 250 171 139 49 481 387 -103 -202 -439 357 348 304 
+pos : 0, pos_insert : 1, val : -83, b->size / 2 : 6, b->size : 13
+Stack A: -83 -192 -373 -494 -180 -256 -365 
+Stack B: 387 -103 -202 -439 357 348 304 251 250 171 139 49 481 
+Stack A: -83 -192 -373 -494 -180 -256 -365 
+Stack B: -103 -202 -439 357 348 304 251 250 171 139 49 481 387 
+pos : 0, pos_insert : 6, val : -192, b->size / 2 : 7, b->size : 14
+Stack A: -192 -373 -494 -180 -256 -365 
+Stack B: 139 49 481 387 -83 -103 -202 -439 357 348 304 251 250 171 
+pos : 0, pos_insert : 6, val : -192, b->size / 2 : 7, b->size : 14
+Stack A: -192 -373 -494 -180 -256 -365 
+Stack B: 139 49 481 387 -83 -103 -202 -439 357 348 304 251 250 171 
+Stack A: -192 -373 -494 -180 -256 -365 
+Stack B: -202 -439 357 348 304 251 250 171 139 49 481 387 -83 -103 
+pos : 2, pos_insert : 6, val : -180, b->size / 2 : 7, b->size : 15
+Stack A: -373 -494 -180 -256 -365 
+Stack B: 139 49 481 387 -83 -103 -192 -202 -439 357 348 304 251 250 171 
+pos : 2, pos_insert : 6
+pos : 2
+pos : 0, pos_insert : 6, val : -180, b->size / 2 : 7, b->size : 15
+Stack A: -180 -256 -365 -373 -494 
+Stack B: 139 49 481 387 -83 -103 -192 -202 -439 357 348 304 251 250 171 
+Stack A: -180 -256 -365 -373 -494 
+Stack B: -192 -202 -439 357 348 304 251 250 171 139 49 481 387 -83 -103 
+pos : 0, pos_insert : 9, val : -256, b->size / 2 : 8, b->size : 16
+Stack A: -256 -365 -373 -494 
+Stack B: 139 49 481 387 -83 -103 -180 -192 -202 -439 357 348 304 251 250 171 
+pos : 0, pos_insert : 9, val : -256, b->size / 2 : 8, b->size : 16
+Stack A: -256 -365 -373 -494 
+Stack B: 139 49 481 387 -83 -103 -180 -192 -202 -439 357 348 304 251 250 171 
+pos : 0, pos_insert : 2, val : -256, b->size / 2 : 8, b->size : 16
+Stack A: -256 -365 -373 -494 
+Stack B: -192 -202 -439 357 348 304 251 250 171 139 49 481 387 -83 -103 -180 
+Stack A: -256 -365 -373 -494 
+Stack B: -439 357 348 304 251 250 171 139 49 481 387 -83 -103 -180 -192 -202 
+Stack A: -494 -373 -365 
+Stack B: 481 387 -83 -103 -180 -192 -202 -256 -439 357 348 304 251 250 171 139 49 

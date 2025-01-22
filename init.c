@@ -6,7 +6,7 @@
 /*   By: mm-furi <mm-furi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:36:07 by mm-furi           #+#    #+#             */
-/*   Updated: 2024/11/29 16:31:48 by mm-furi          ###   ########.fr       */
+/*   Updated: 2025/01/13 16:36:16 by mm-furi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,4 +205,15 @@ void print_stack(t_stack *stack, char *name)
         current = current->next;
     }
     printf("\n");
+}
+
+t_node *nodelast(t_node *node)
+{
+	while (node)
+	{
+		if (!node->next)
+			return (node);
+		node = node->next;
+	}
+	return (node);
 }
