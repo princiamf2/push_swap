@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mm-furi <mm-furi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: michel <michel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:45:35 by mm-furi           #+#    #+#             */
-/*   Updated: 2025/01/22 16:23:43 by mm-furi          ###   ########.fr       */
+/*   Updated: 2025/01/27 19:45:58 by michel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int main(int argc, char **argv)
 		error_exit();
 	}
 	moove_to_a(a, b);
+	print_stack(a, "A");
+	print_stack(b, "B");
 	free_stack(a);
 	free_stack(b);
 	return (0);

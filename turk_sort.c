@@ -21,38 +21,6 @@ int find_pos_insert(t_stack *stack, int nb)
 	return (i + 1);
 }
 
-int find_val_min_moove(t_stack *a, t_stack *b)
-{
-	int i;
-	int j;
-	int min;
-	t_node *cur;
-
-	j = INT_MAX;
-	min = 0;
-	cur = a->top;
-	while (cur)
-	{
-		i = find_pos_insert(b, cur->value);
-		if (i < j)
-		{
-			j = i;
-			min = cur->value;
-		}
-		cur = cur->next;
-	}
-	return (min);
-}
-
-int is_same_rot(int n, int nb, int size)
-{
-	if (n > size / 2 && nb > size / 2)
-        return (1);
-    else if (n < size / 2&& nb < size / 2)
-        return (2);
-    return (0);
-}
-
 int find_pos_to_stack(t_stack *stack, int nb)
 {
 	int i;
@@ -72,88 +40,163 @@ int find_pos_to_stack(t_stack *stack, int nb)
 	return (-1);
 }
 
-void reverse_rot_a(t_stack *a, int nb)
+t_move	compute_costs(int pos_a, int pos_b, int size_a, int size_b)
 {
-	nb = a->size - nb;
-	while (nb)
+	t_move move;
+	int	rev_a;
+	int rev_b;
+
+	rev_a = size_a - pos_a;
+	rev_b = size_b - pos_b;
+	if (pos_a > pos_b)
+		move.rr = pos_a;
+	else
+		move.rr = pos_b;
+	if (rev_a > rev_b)
+		move.rrr = rev_a;
+	else
+		move.rrr = rev_b;
+	move.rarrb = pos_a + rev_b;
+	move.rrbra = rev_a + pos_b;
+	move.best = move.rr;
+	move.method = 1;
+	if (move.rrr < move.best)
 	{
-		rra(a);
-		nb--;
+		move.best = move.rrr;
+		move.method = 2;
 	}
+	if (move.rarrb < move.best)
+	{
+		move.best =move.rarrb;
+		move.method = 3;
+	}
+	if (move.rrbra < move.best)
+	{
+		move.best = move.rrbra;
+		move.method = 4;
+	}
+	return (move);
 }
 
-void rot_a(t_stack *a, int nb)
+void apply_move(t_stack *a, t_stack *b, t_move move, int pos_a, int pos_b)
 {
-	while (nb)
-	{
-		ra(a);
-		nb--;
-	}
-}
+	int rev_a;
+	int rev_b;
+	int both;
+	int diff;
 
-void reverse_rot_b(t_stack *b, int nb)
-{
-	nb = b->size - nb;
-	while (nb)
+	rev_a = a->size - pos_a;
+	rev_b = b->size - pos_b;
+	if (move.method == 1)
 	{
-		rrb(b);
-		nb--;
-	}
-}
-
-void rot_b(t_stack *b, int nb)
-{
-	while (nb)
-	{
-		rb(b);
-		nb--;
-	}
-}
-
-void best_rot(int pos, int pos_insert, t_stack *a, t_stack *b)
-{
-	int val;
-
-	val = find_val_min_moove(a, b);
-	if (pos == 0 && pos_insert == 0)
-		return ;
-	if (pos == a->size - 1)
-	{
-		rra(a);
-		pos = 0;
-	}
-	while (pos > 0 && pos_insert > 0)
-	{
-		if (pos > a->size / 2 && pos_insert > b->size / 2)
-			rrr(a, b);
-		else if (pos < a->size / 2 && pos_insert < b->size / 2)
+		if (pos_a < pos_b)
+			both = pos_a;
+		else
+			both = pos_b;
+		while (both > 0)
+		{
 			rr(a, b);
-		else
-			break ;
-		pos--;
-		pos_insert--;
-	}
-	while (pos)
-	{
-		if (pos > a->size / 2)
-		{
-			reverse_rot_a(a, pos);
-			pos = find_pos_to_stack(a, val);
+			both--;
 		}
-		else
+		diff = pos_a - (pos_a < pos_b ? pos_a : pos_b);
+		if (diff < 0)
+			diff = 0;
+		while (diff > 0)
 		{
-			rot_a(a, pos);
-			pos = find_pos_to_stack(a, val);
+			ra(a);
+			diff--;
+		}
+		diff = pos_b - (pos_a < pos_b ? pos_a : pos_b);
+		if (diff < 0)
+			diff = 0;
+		while (diff > 0)
+		{
+			rb(b);
+			diff--;
 		}
 	}
-	while (pos_insert)
+	else if (move.method == 2)
 	{
-		if (pos_insert > b->size / 2)
-			reverse_rot_b(b, pos_insert);
+		if (rev_a < rev_b)
+			both = rev_a;
 		else
-			rot_b(b, pos_insert);
-		pos_insert = find_pos_insert(b, val);
+			both = rev_b;
+		while (both > 0)
+		{
+			rrr(a, b);
+			both--;
+		}
+		diff = rev_a - (rev_a < rev_b ? rev_a : rev_b);
+		if (diff < 0)
+			diff = 0;
+		while (diff > 0)
+		{
+			rra(a);
+			diff--;
+		}
+		diff = rev_b - (rev_a < rev_b ? rev_a : rev_b);
+		if (diff < 0)
+			diff = 0;
+		while (diff > 0)
+		{
+			rrb(b);
+			diff--;
+		}
 	}
+	else if (move.method == 3)
+	{
+		while (pos_a > 0)
+		{
+			ra(a);
+			pos_a--;
+		}
+		while (rev_b > 0)
+		{
+			rrb(b);
+			rev_b--;
+		}
+	}
+	else if (move.method == 4)
+	{
+		while (rev_a > 0)
+		{
+			rra(a);
+			rev_a--;
+		}
+		while (pos_b > 0)
+		{
+			rb(b);
+			pos_b--;
+		}
+	}
+}
+
+int find_val_min_moove(t_stack *a, t_stack *b)
+{
+	 t_node *cur;
+    int best_val;
+    int best_cost;
+    int pos_a;
+    int pos_b;
+    t_move tmp_move;
+
+    best_val = 0;
+    best_cost = INT_MAX;
+    cur = a->top;
+    while (cur)
+    {
+        pos_a = find_pos_to_stack(a, cur->value);
+        pos_b = find_pos_insert(b, cur->value);
+        tmp_move = compute_costs(pos_a, pos_b, a->size, b->size);
+
+        if (tmp_move.best < best_cost)
+        {
+            best_cost = tmp_move.best;
+            best_val = cur->value;
+        }
+        cur = cur->next;
+    }
+    return (best_val);
 }
 
 void push_to_b(t_stack *a, t_stack *b)
@@ -161,7 +204,7 @@ void push_to_b(t_stack *a, t_stack *b)
 	int val;
 	int pos;
 	int pos_insert;
-	int back;
+	t_move move;
 
 	while (b->size < 2)
 		pb(b, a);
@@ -172,53 +215,9 @@ void push_to_b(t_stack *a, t_stack *b)
 		val = find_val_min_moove(a, b);
 		pos = find_pos_to_stack(a, val);
 		pos_insert = find_pos_insert(b, val);
-		back = pos_insert;
-		if (pos_insert == b->size && pos == 0 && val < find_min(b))
-		{
-			pb(b, a);
-			rb(b);
-			back = 0;
-		}
-		else if (pos_insert == b->size - 1 && pos == 0)
-		{
-			rrb(b);
-			pb(b, a);
-			rb(b);
-			rb(b);
-			back = 0;
-		}
-		else
-		{
-			best_rot(pos, pos_insert, a, b);
-			pb(b, a);
-		}
-		while (back > 0)
-		{
-			if (back == b->size)
-				break;
-			else if (back == b->size - 3)
-			{
-				rb(b);
-				rb(b);
-				rb(b);
-				break;
-			}
-			else if (back == b->size - 2)
-			{
-				rb(b);
-				rb(b);
-				break ;
-			}
-			else
-			{
-				back = b->size - back;
-				if (back < b->size / 2)
-					rot_b(b, back);
-				else
-					reverse_rot_b(b, back);
-			}
-			back = 0;
-		}
+		move = compute_costs(pos, pos_insert, a->size, b->size);
+		apply_move(a, b, move, pos, pos_insert);
+		pb(b, a);
 	}
 	sort_three(a);
 }
@@ -241,11 +240,34 @@ int last_val(t_stack *stack)
 
 void moove_to_a(t_stack *a, t_stack *b)
 {
+	int val;
+	int pos;
+	int first_val_push;
+
 	push_to_b(a, b);
+	val = find_max(b);
+	first_val_push = val;
+	while (b->top->value != val)
+	{
+		pos = find_pos_to_stack(b, val);
+		if (pos > b->size / 2)
+			rrb(b);
+		else
+			rb(b);
+	}
 	pa(a, b);
 	while (b->size > 0)
 	{
-		while (last_val(a) > b->top->value)
+		val = find_max(b);
+		while (b->top->value != val)
+		{
+			pos = find_pos_to_stack(b, val);
+			if (pos > b->size / 2)
+				rrb(b);
+			else
+				rb(b);
+		}
+		while (last_val(a) > val && last_val(a) != first_val_push)
 		{
 			rra(a);
 			if (b->size == 1 && is_sorted(a))

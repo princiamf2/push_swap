@@ -11,13 +11,20 @@ typedef struct s_node
 	int				value;
 	struct s_node	*next;
 }					t_node;
-
 typedef struct s_stack
 {
 	t_node			*top;
 	int				size;
 }					t_stack;
-
+typedef struct s_move
+{
+	int rr;
+	int rrr;
+	int rarrb;
+	int rrbra;
+	int best;
+	int method;
+}					t_move;
 t_stack				*init_stack(int argc, char **argv);
 t_stack				*create_empty_stack(void);
 int					push_to_stack(t_stack *stack, int value);
